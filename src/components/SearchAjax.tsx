@@ -48,7 +48,7 @@ function SearchAjax() {
 		setInputSearch(e.target.value);
 	};
 
-	const typeSearchHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+	const typeSearchHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
 		if (e.target.value == "book" || e.target.value == "e-book")
 			setButtonSearchIcon(<BookSearch className="w-6 h-6" />);
 		else if (e.target.value == "article")
@@ -72,7 +72,9 @@ function SearchAjax() {
 		<div className="relative h-full">
 			<form
 				onSubmit={SubmitSearchHandler}
-				className={`flex flex-wrap justify-between bg-background-default dark:bg-background-default-dark  overflow-hidden h-10 border-2 border-primary ${inputSerch ? "rounded-t-lg  border-b-0" : "rounded-lg"}`}>
+				className={`flex flex-wrap justify-between bg-background-default dark:bg-background-default-dark  overflow-hidden h-10 border-2 border-primary ${
+					inputSerch ? "rounded-t-lg  border-b-0" : "rounded-lg"
+				}`}>
 				<input
 					type="text"
 					className="p-2 bg-transparent"
@@ -87,7 +89,7 @@ function SearchAjax() {
 					onChange={typeSearchHandler}
 				/>
 				<button className="flex items-center justify-center bg-primary border-primary w-10 h-full">
-					{isLoading ? (
+					{inputSerch && isLoading ? (
 						<LoadingDoted className="w-6 h-6 animate-spin" />
 					) : (
 						buttonSearchIcon
@@ -95,7 +97,10 @@ function SearchAjax() {
 				</button>
 			</form>
 			{inputSerch && (
-				<div className={`absolute top-10 w-full h-64 bg-background-default text-text-primary border-2 border-primary ${inputSerch ? "rounded-b-lg" : "rounded-lg"}`}>
+				<div
+					className={`absolute top-10 w-full h-64 bg-background-default text-text-primary border-2 border-primary ${
+						inputSerch ? "rounded-b-lg" : "rounded-lg"
+					}`}>
 					{isLoading ? (
 						<p>LOading</p>
 					) : (

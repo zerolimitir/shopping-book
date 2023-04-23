@@ -10,7 +10,7 @@ export default interface SelectInput {
 	name: string;
 	className?: string;
 	option: SelectItem[];
-	onChange?: Function;
+	onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
 declare global {
