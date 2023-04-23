@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+	font-family: "IranSANS";
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+	src: url("/Font/IRANSans-Regular.woff2");
+}
+
+@font-face {
+	font-family: "IranSANS";
+	font-weight: bold;
+	font-style: bold;
+	font-display: swap;
+	src: url("/Font/IRANSans-DemiBold.woff2");
+}
+
+input,
+select,
+textarea {
+	@apply focus:outline-none focus-visible:outline-none focus:placeholder:text-transparent  bg-background-default dark:bg-background-default-dark text-text-primary dark:text-text-primary-dark;
+}
+
