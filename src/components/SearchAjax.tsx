@@ -8,7 +8,7 @@ import SelectInput from "./Common/SelectInput";
 import { SelectItem } from "../types/SelectInput";
 import React, { useEffect, useState } from "react";
 
-function SearchAjax() {
+export default function SearchAjax() {
 	const [isLoading, setIsLoading] = useState<Boolean>(false);
 	const [inputSerch, setInputSearch] = useState<String>("");
 	const [typeSearch, setTypeSearch] = useState<String>("All");
@@ -112,4 +112,47 @@ function SearchAjax() {
 	);
 }
 
-export default SearchAjax;
+export function SearchForm() {
+	const [isLoading, setIsLoading] = useState<Boolean>(false);
+	const [inputSerch, setInputSearch] = useState<String>("");
+
+	const SubmitSearchHandler = (eventSubmit: React.SyntheticEvent) => {
+		eventSubmit.preventDefault();
+	};
+
+	const inputSearchHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+		setIsLoading(true);
+		setInputSearch(e.target.value);
+	};
+
+	useEffect(() => {
+		const delayRequest = setTimeout(() => {
+			// After receiving the response from the server, this loading should be false
+			setIsLoading(false);
+		}, 1500);
+
+		return () => {
+			clearTimeout(delayRequest);
+		};
+	}, [inputSerch]);
+
+	return (
+		<form
+			onSubmit={SubmitSearchHandler}
+			className={`flex flex-wrap justify-between bg-background-default dark:bg-background-default-dark overflow-hidden h-10 border border-primary rounded-lg w-full`}>
+			<input
+				type="text"
+				className="p-2 bg-transparent"
+				placeholder="جستجو کنید ..."
+				onChange={inputSearchHandler}
+			/>
+			<button className="flex items-center justify-center text-white bg-primary border-primary w-10 h-full">
+				{inputSerch && isLoading ? (
+					<LoadingDoted className="w-6 h-6 animate-spin" />
+				) : (
+					<Search className="w-6 h-6" />
+				)}
+			</button>
+		</form>
+	);
+}

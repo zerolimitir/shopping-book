@@ -1,4 +1,4 @@
-import SearchAjax from "@/components/SearchAjax";
+import SearchAjax, { SearchForm } from "@/components/SearchAjax";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -10,7 +10,11 @@ import {
 	MenuHome,
 } from "react-huge-icons/solid";
 
-export function TopHeader() {
+interface HeaderProps {
+	res: boolean;
+}
+
+export function TopHeader({ res }: HeaderProps) {
 	const [darkMode, setDarkmode] = useState<Boolean>(false);
 
 	useEffect(() => {
@@ -40,26 +44,25 @@ export function TopHeader() {
 					/>
 				</div>
 
-				<div className="hidden lg:flex">
-					<SearchAjax />
-				</div>
+				{res && <SearchAjax />}
 
 				<div className="">
 					<div className="flex gap-3 lg:gap-10 items-center justify-between">
-						<button
-							className="flex flex-col gap-1 items-center cursor-pointer"
-							onClick={() => setDarkmode(!darkMode)}>
-							{darkMode ? (
-								<LightMode className="w-6 md:w-8 h-6 md:h-8" />
-							) : (
-								<NightMode className="w-6 md:w-8 h-6 md:h-8" />
-							)}
+						{res && (
+							<button
+								className="flex flex-col gap-1 items-center cursor-pointer"
+								onClick={() => setDarkmode(!darkMode)}>
+								{darkMode ? (
+									<LightMode className="w-6 md:w-8 h-6 md:h-8" />
+								) : (
+									<NightMode className="w-6 md:w-8 h-6 md:h-8" />
+								)}
 
-							<p className="text-sm select-none hidden lg:flex">
-								{darkMode ? "روشن" : "تاریک"}
-							</p>
-						</button>
-
+								<p className="text-sm select-none flex">
+									{darkMode ? "روشن" : "تاریک"}
+								</p>
+							</button>
+						)}
 						<Link href="/" className="flex flex-col gap-1 items-center">
 							<User className="w-6 md:w-8 h-6 md:h-8" />
 							<p className="text-sm select-none hidden lg:flex">پروفایل</p>
@@ -71,11 +74,13 @@ export function TopHeader() {
 							<p className="text-sm select-none hidden lg:flex">سبد خرید</p>
 						</Link>
 
-						<button
-							className="flex flex-col gap-1 items-center cursor-pointer lg:hidden"
-							onClick={() => {}}>
-							<MenuHome className="w-6 h-6" />
-						</button>
+						{!res && (
+							<button
+								className="flex flex-col gap-1 items-center cursor-pointer lg:hidden"
+								onClick={() => {}}>
+								<MenuHome className="w-6 md:w-8 h-6 md:h-8" />
+							</button>
+						)}
 					</div>
 				</div>
 			</div>
@@ -83,15 +88,19 @@ export function TopHeader() {
 	);
 }
 
-export function BottomHeader() {
-	return <></>;
+export function BottomHeader({ res }: HeaderProps) {
+	return (
+		<div className="container flex items-center justify-between gap-3 py-3 ">
+			{!res && <SearchForm />}
+		</div>
+	);
 }
 
-function Header() {
+function Header({ res }: HeaderProps) {
 	return (
 		<div className="bg-background-default dark:bg-background-default-dark">
-			<TopHeader />
-			<BottomHeader />
+			<TopHeader res={res} />
+			<BottomHeader res={res} />
 		</div>
 	);
 }
