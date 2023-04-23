@@ -72,7 +72,7 @@ function SearchAjax() {
 		<div className="relative h-full">
 			<form
 				onSubmit={SubmitSearchHandler}
-				className={`flex flex-wrap justify-between bg-background-default dark:bg-background-default-dark overflow-hidden h-10 border-2 border-primary ${
+				className={`flex flex-wrap justify-between bg-background-default dark:bg-background-default-dark overflow-hidden h-10 border border-primary ${
 					inputSerch ? "rounded-t-lg border-b-0" : "rounded-lg"
 				}`}>
 				<input
@@ -98,7 +98,7 @@ function SearchAjax() {
 			</form>
 			{inputSerch && (
 				<div
-					className={`absolute top-10 w-full h-64 bg-background-default text-text-primary border-2 border-primary ${
+					className={`absolute top-10 w-full h-64 bg-background-default text-text-primary border border-primary ${
 						inputSerch ? "rounded-b-lg" : "rounded-lg"
 					}`}>
 					{isLoading ? (
