@@ -12,7 +12,7 @@ function SearchAjax() {
 	const [isLoading, setIsLoading] = useState<Boolean>(false);
 	const [inputSerch, setInputSearch] = useState<String>("");
 	const [typeSearch, setTypeSearch] = useState<String>("All");
-	const [buttonSearchIcon, setButtonSearchIcon] = useState(
+	const [buttonSearchIcon, setButtonSearchIcon] = useState<JSX.Element>(
 		<Search className="w-6 h-6" />,
 	);
 
@@ -61,7 +61,7 @@ function SearchAjax() {
 		const delayRequest = setTimeout(() => {
 			// After receiving the response from the server, this loading should be false
 			setIsLoading(false);
-		}, 2000);
+		}, 1500);
 
 		return () => {
 			clearTimeout(delayRequest);
@@ -72,8 +72,8 @@ function SearchAjax() {
 		<div className="relative h-full">
 			<form
 				onSubmit={SubmitSearchHandler}
-				className={`flex flex-wrap justify-between bg-background-default dark:bg-background-default-dark  overflow-hidden h-10 border-2 border-primary ${
-					inputSerch ? "rounded-t-lg  border-b-0" : "rounded-lg"
+				className={`flex flex-wrap justify-between bg-background-default dark:bg-background-default-dark overflow-hidden h-10 border-2 border-primary ${
+					inputSerch ? "rounded-t-lg border-b-0" : "rounded-lg"
 				}`}>
 				<input
 					type="text"
@@ -88,7 +88,7 @@ function SearchAjax() {
 					option={selectList}
 					onChange={typeSearchHandler}
 				/>
-				<button className="flex items-center justify-center bg-primary border-primary w-10 h-full">
+				<button className="flex items-center justify-center text-white bg-primary border-primary w-10 h-full">
 					{inputSerch && isLoading ? (
 						<LoadingDoted className="w-6 h-6 animate-spin" />
 					) : (
