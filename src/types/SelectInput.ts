@@ -1,5 +1,4 @@
-
-import * as React from 'react';
+import * as React from "react";
 export interface SelectItem {
 	value: string;
 	lable: string;
@@ -7,16 +6,20 @@ export interface SelectItem {
 }
 
 export default interface SelectInput {
-	id: string;
+	id?: string;
 	name: string;
 	className?: string;
 	option: SelectItem[];
+	onChange?: Function;
 }
 
 declare global {
-    namespace JSX {
-        interface IntrinsicElements {
-            'options': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
-        }
-    }
+	namespace JSX {
+		interface IntrinsicElements {
+			options: React.DetailedHTMLProps<
+				React.HTMLAttributes<HTMLElement>,
+				HTMLElement
+			>;
+		}
+	}
 }
