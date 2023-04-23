@@ -1,18 +1,21 @@
+import SearchAjax from "@/components/SearchAjax";
 import Image from "next/image";
 
 export function TopHeader() {
 	return (
-		<div className="flex gap-3">
+		<div className="container flex items-center justify-between gap-3 py-5">
 			<div>
 				<Image
 					alt=""
 					src="/Image/logo.svg"
-					width={10}
-					height={10}
-					className="w-10"
+					width={151}
+					height={46}
+					className=""
 				/>
 			</div>
-			<div></div>
+			<div>
+				<SearchAjax />
+			</div>
 			<div></div>
 		</div>
 	);
