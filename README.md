@@ -1,1 +1,18 @@
-### Developping ...
+#Shopping Book
+
+## contributes
+
+### Designer
+- [Negar Amini](amininegar6@gmail.com)
+- [Dayan Rajabi](mailto:dynrajabi@yahoo.com)
+
+### SEO expert
+- [Samira Fahimi](fahimii.samira@gmail.com)
+
+### Back-End Developer
+- [Ali](https://github.com/xiiionthecode)
+
+### Front-End Developer
+- [Mohmad Doraghi](https://github.com/mohmad-dorqi)
+- [Mohammad Ebrahimi](https://github.com/mohmad-dorqi)
+- [Peyman Naderi](https://github.com/peymanath)
