@@ -3,11 +3,11 @@
 ## contributes
 
 ### Designer
-- [Negar Amini](amininegar6@gmail.com)
+- [Negar Amini](mailto:amininegar6@gmail.com)
 - [Dayan Rajabi](mailto:dynrajabi@yahoo.com)
 
 ### SEO expert
-- [Samira Fahimi](fahimii.samira@gmail.com)
+- [Samira Fahimi](mailto:fahimii.samira@gmail.com)
 
 ### Back-End Developer
 - [Ali](https://github.com/xiiionthecode)
