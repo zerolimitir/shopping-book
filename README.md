@@ -14,5 +14,6 @@
 
 ### Front-End Developer
 - [Mohmad Doraghi](https://github.com/mohmad-dorqi)
-- [Mohammad Ebrahimi](https://github.com/mohmad-dorqi)
+- [Mohammad Ebrahimi](https://github.com/mhmd-bagha)
+- [AmirMahdi Shad](https://github.com/AmirMahdi-Shad)
 - [Peyman Naderi](https://github.com/peymanath)
